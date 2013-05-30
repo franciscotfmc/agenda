@@ -27,3 +27,4 @@ doc/
 .DS_Store
 bundler_stubs/
 *.lock
+db/schema.rb
