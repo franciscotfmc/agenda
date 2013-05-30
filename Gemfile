@@ -30,6 +30,7 @@ end
 
 group :test do
   gem 'cucumber-rails', '1.2.1'
+  gem 'database_cleaner'
 end
 
 # To use ActiveModel has_secure_password
