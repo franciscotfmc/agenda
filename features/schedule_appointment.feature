@@ -5,13 +5,14 @@ Feature: Schedule Appointment
   I want to schedule my appointments
 
   Scenario: Appointment scheduled for available date
-    Given an event
-    When I schedule it to "2013-06-15" at "4:00pm"
+    Given I visit the new appointment page
+    When I schedule the appointment to "2013-06-15" at "4:00pm"
     And there is no appointment for this date yet
     Then I should see a success message
+    And I should see the appointments page
 
   Scenario: Appointment scheduled for unavailable date
-    Given an event
-    When I schedule it to "2013-06-15" at "4:00pm"
+    Given I visit the new appointments page
+    When I schedule a new appointment "2013-06-15" at "4:00pm"
     And there is already an appointment for this date
     Then I should see an error message
