@@ -25,6 +25,10 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'capybara', '1.1.2'
   gem 'rspec-rails', '2.11.0'
+  
+end
+
+group :test do
   gem 'cucumber-rails', '1.2.1'
 end
 
