@@ -1,16 +1,17 @@
-<h1>Create new appointment</h1>
+<div class="row">
+  <div class="span10">
+    <h1>Create new appointment</h1>
+    <%= form_for(@appointment) do |f| %>
+      <%= f.label :description, "Appointment Description" %>
+      <%= f.text_area :description %>
 
-<div>
-  <%= form_for(@appointment) do |f| %>
-    <%= f.label :description, "Appointment Description" %>
-    <%= f.text_area :description %>
+      <%= f.label :due_date, "Date" %>
+      <%= f.date_select :due_date %>
 
-    <%= f.label :due_date, "Date" %>
-    <%= f.date_select :due_date %>
+      <%= f.label :due_time, "Will happen at" %>
+      <%= f.time_select :due_time %>
 
-    <%= f.label :due_time, "Will happen at" %>
-    <%= f.time_select :due_time %>
-
-    <%= f.submit "Add" %>
-  <% end %>
+      <%= f.submit "Add", class: "btn btn-large btn-primary span6" %>
+    <% end %>
+  </div>
 </div>
