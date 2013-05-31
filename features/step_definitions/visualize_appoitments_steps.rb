@@ -17,5 +17,5 @@ When(/^I have more than (\d+) appointments$/) do |arg1|
 end
 
 Then(/^I should see a list of appointments$/) do
-  page.should have_selector('ul')
+  page.should have_selector('table')
 end
