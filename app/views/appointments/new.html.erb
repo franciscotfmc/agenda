@@ -1,0 +1,16 @@
+<h1>Create new appointment</h1>
+
+<div>
+  <%= form_for(@appointment) do |f| %>
+    <%= f.label :description, "Appointment Description" %>
+    <%= f.text_area :description %>
+
+    <%= f.label :due_date, "Date" %>
+    <%= f.date_select :due_date %>
+
+    <%= f.label :due_time, "Will happen at" %>
+    <%= f.time_select :due_time %>
+
+    <%= f.submit "Add" %>
+  <% end %>
+</div>

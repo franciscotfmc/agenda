@@ -1,11 +1,11 @@
 Given(/^I visit the new appointment page$/) do
-  visit appointments_path
+  visit new_appointment_path
 end
 
 When(/^I schedule the appointment to "(.*?)" at "(.*?)"$/) do |date, time|
-  fill_in "Appointment Name", with: "Appointment 1"
+  fill_in "Appointment Description", with: "Appointment 1"
   fill_in "Date", with: date
-  fill_in "Time", with: time
+  fill_in "Will happen at", with: time
   click_button "Add"
 end
 
