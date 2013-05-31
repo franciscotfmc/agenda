@@ -13,7 +13,7 @@ Feature: Schedule Appointment
 
   Scenario: Appointment scheduled for unavailable date
     Given I visit the new appointments page
-    When there is already an appointment for "2013-06-15" at "16:00"
-    And I schedule a new appointment "2013-06-15" at "16:00"
+    When there is already an appointment for "15/06/2013" at "16:00"
+    And I schedule a new appointment to "15/06/2013" at "16:00"
     Then I should see an error message
     And I should see the same page

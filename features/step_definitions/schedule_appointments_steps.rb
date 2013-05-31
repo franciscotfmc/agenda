@@ -26,10 +26,14 @@ Given(/^I visit the new appointments page$/) do
 end
 
 When(/^there is already an appointment for "(.*?)" at "(.*?)"$/) do |date, time|
-  @existing_appointment = Appointment.create!(description: "Existing appointment", due_date: date, due_time: time)
+  fill_in "Appointment Description", with: "Existing appointment"
+  select_date "Date", with: date
+  select_time "Will happen at", with: time
+  click_button "Add"
+  visit new_appointment_path
 end
 
-When(/^I schedule a new appointment "(.*?)" at "(.*?)"$/) do |date, time|
+When(/^I schedule a new appointment to "(.*?)" at "(.*?)"$/) do |date, time|
   fill_in "Appointment Description", with: "Appointment 1"
   select_date "Date", with: date
   select_time "Will happen at", with: time

@@ -3,5 +3,6 @@ class Appointment < ActiveRecord::Base
 
   validates :description, presence: true, length: { maximum: 140 }
   validates :due_date, presence: true
-  validates :due_time, presence: true 
+  
+  validates :due_time, presence: true, uniqueness: { scope: :due_date }
 end

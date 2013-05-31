@@ -35,4 +35,13 @@ describe Appointment do
     before { @appointment.description = "a" * 141 }
     it { should_not be_valid }
   end
+
+  describe "when appointment date and time has already bean filled" do
+    before do
+      @another_appointment = @appointment.dup
+      @another_appointment.save
+    end
+
+    it { should_not be_valid }
+  end
 end
