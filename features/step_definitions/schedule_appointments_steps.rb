@@ -4,8 +4,8 @@ end
 
 When(/^I schedule the appointment to "(.*?)" at "(.*?)"$/) do |date, time|
   fill_in "Appointment Description", with: "Appointment 1"
-  fill_in "Date", with: date
-  fill_in "Will happen at", with: time
+  select_date "Date", with: date
+  select_time "Will happen at", with: time
   click_button "Add"
 end
 
@@ -31,8 +31,8 @@ end
 
 When(/^I schedule a new appointment "(.*?)" at "(.*?)"$/) do |date, time|
   fill_in "Appointment Description", with: "Appointment 1"
-  fill_in "Date", with: date
-  fill_in "Will happen at", with: time
+  select_date "Date", with: date
+  select_time "Will happen at", with: time
   click_button "Add"
 end
 
