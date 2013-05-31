@@ -22,17 +22,26 @@ Then(/^I should see the appointments page$/) do
 end
 
 Given(/^I visit the new appointments page$/) do
-  pending # express the regexp above with the code you wish you had
+  visit new_appointment_path
 end
 
-When(/^I schedule a new appointment "(.*?)" at "(.*?)"$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+When(/^there is already an appointment for "(.*?)" at "(.*?)"$/) do |date, time|
+  @existing_appointment = Appointment.create!(description: "Existing appointment", due_date: date, due_time: time)
 end
 
-When(/^there is already an appointment for this date$/) do
-  pending # express the regexp above with the code you wish you had
+When(/^I schedule a new appointment "(.*?)" at "(.*?)"$/) do |date, time|
+  fill_in "Appointment Description", with: "Appointment 1"
+  fill_in "Date", with: date
+  fill_in "Will happen at", with: time
+  click_button "Add"
 end
 
 Then(/^I should see an error message$/) do
-  pending # express the regexp above with the code you wish you had
+  page.should have_selector('div.alert.alert-error')
 end
+
+Then(/^I should see the same page$/) do
+  page.should have_selector('title', text: "New Appointment")
+end
+
+
