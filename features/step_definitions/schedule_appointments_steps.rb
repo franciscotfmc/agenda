@@ -2,7 +2,7 @@ Given(/^I visit the new appointment page$/) do
   visit new_appointment_path
 end
 
-When(/^I schedule the appointment to "(.*?)" at "(.*?)"$/) do |date, time|
+When(/^I schedule the appointment to (.*?) at (.*?)$/) do |date, time|
   fill_in "Appointment Description", with: "Appointment 1"
   select_date "Date", with: date
   select_time "Will happen at", with: time
@@ -25,18 +25,13 @@ Given(/^I visit the new appointments page$/) do
   visit new_appointment_path
 end
 
-When(/^there is already an appointment for "(.*?)" at "(.*?)"$/) do |date, time|
-  fill_in "Appointment Description", with: "Existing appointment"
-  select_date "Date", with: date
-  select_time "Will happen at", with: time
-  click_button "Add"
+When(/^there is already an appointment for (.*?) at (.*?)$/) do |date, time|
+  step "I schedule the appointment to #{date} at #{time}"
   visit new_appointment_path
 end
 
 When(/^I schedule a new appointment to "(.*?)" at "(.*?)"$/) do |date, time|
-  fill_in "Appointment Description", with: "Appointment 1"
-  select_date "Date", with: date
-  select_time "Will happen at", with: time
+  step "I schedule the appointment to #{date} at #{time}"
   click_button "Add"
 end
 
